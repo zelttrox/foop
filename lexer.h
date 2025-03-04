@@ -1,4 +1,13 @@
-enum Token {
+struct Token {
+    TokenType type;
+};
+
+struct Tokenizer {
+	char* location;
+	int count;
+};
+
+enum TokenType {
     Identifier,
 
     // Variable types
