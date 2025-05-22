@@ -1,18 +1,32 @@
+#include <iostream>
+using namespace std;
+
 #include "lexer.h"
+#include "log.cpp"
 
-Token GetToken(Tokenizer& tokenizer) {
+// Import libraries
+#include <string>
+#include <vector>
 
-    Token token = {};
+// Converts an array of chars into an array of tokens
+// TODO: REMOVE ALL WHITESPACES BEFORE CONVERTING
+vector<Token> GetTokens(vector<string> chars) {
 
-    switch (tokenizer.location[0]) {
-    case '(': token.type = sep_LeftParenthesis; break;
-    case ')': token.type = sep_RightParenthesis; break;
-    case '{': token.type = sep_LeftBracket; break;
-    case '}': token.type = sep_RightBracket; break;
-    case '[': token.type = sep_LeftBrace; break;
-    case ']': token.type = sep_RightBrace; break;
+    vector<Token> tokens;
+    Logic logic;
     
-    default:
-        break;
+    // Loop through providen array
+    for (size_t i = 0; i < chars.size(); i++) {
+        log("processing token: " + chars.at(i));
+        Token token;
+        // Check char type
+        if (chars.at(i) == "") cout << "Error: Couldn't convert null character";
+        else if (chars.at(i) == "new") {
+            token = key_New;
+            tokens.push_back(token);
+            log("adding token: " + token);
+            break;
+        }
     }
+    return tokens;
 }

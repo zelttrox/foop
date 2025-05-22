@@ -1,19 +1,11 @@
-struct Token {
-    TokenType type;
-};
+enum Logic {var_declaration, func_declaration};
 
-struct Tokenizer {
-	char* location;
-	int count;
-};
-
-enum TokenType {
-    Identifier,
+enum Token {
 
     // Variable types
     var_Number,
     var_Float,
-    var_var_String,
+    var_String,
     var_Boolean,
 
     // Operators
@@ -21,6 +13,7 @@ enum TokenType {
     op_Minus,
     op_Multiply,
     op_Divide,
+    op_Tilde,
 
     // Comparators
     comp_Equal,
@@ -41,7 +34,7 @@ enum TokenType {
     sep_Comma,
 
     // Keywords
-    key_Var,
+    key_New,
     key_If,
     key_Else,
     key_ElseIf,
