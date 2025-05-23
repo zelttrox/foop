@@ -13,20 +13,32 @@ using namespace std;
 vector<Token> GetTokens(vector<string> chars) {
 
     vector<Token> tokens;
-    Logic logic;
+    Logic logic = none;
     
     // Loop through providen array
     for (size_t i = 0; i < chars.size(); i++) {
         log("processing token: " + chars.at(i));
         Token token;
+        // Logic
+        // if (chars.at(i).find("~") != string::npos) {
+        //     logic = var_declaration;
+        // }
         // Check char type
-        if (chars.at(i) == "") cout << "Error: Couldn't convert null character";
+        if (chars.at(i) == "") cout << "Error: Character is null";
         else if (chars.at(i) == "new") {
             token = key_New;
             tokens.push_back(token);
-            log("adding token: " + token);
-            break;
+        }
+        else if (chars.at(i) == "~string") {
+            token = var_String;
+            tokens.push_back(token);
         }
     }
+    for (size_t i = 0; i < tokens.size(); i++) {
+        string s = to_string(tokens.at(i));
+        s += " ";
+        cout << s;
+    }
+    
     return tokens;
 }

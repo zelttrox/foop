@@ -1,4 +1,4 @@
-enum Logic {var_declaration, func_declaration};
+enum Logic {none, var_declaration, func_declaration};
 
 enum Token {
 

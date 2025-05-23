@@ -10,10 +10,7 @@ using namespace std;
 // Chars example: new ~string input = "test";
 
 int main() {
-
-    vector<string> code = {"new"};
+    vector<string> code = {"new", "~string"};
     vector<Token> tokens = GetTokens(code);
-
-    for (char i: tokens) cout << i << ' ';
     return 0;
 }
